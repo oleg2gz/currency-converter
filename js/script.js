@@ -49,6 +49,12 @@ const handleInput = (e) => {
 const handleSubmit = (e) => {
   e.preventDefault()
 
+  if (!rateEUR || !rateUSD || !rateCNY) {
+    document.querySelector('.error')
+      .textContent`Что-то пошло не так: - нет данных о курсах валют...`
+    return
+  }
+
   if (!inputCurrency.value && !inputRubles.value) return
 
   if (!inputCurrency.value) {
